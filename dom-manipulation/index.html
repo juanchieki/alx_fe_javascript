@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Quote Generator</title>
+</head>
+<body>
+  <h1>Dynamic Quote Generator</h1>
+  <div id="quoteDisplay"></div>
+  <button id="newQuote">Show New Quote</button>
+  <div>
+    <label for="categoryFilter">Filter by Category:</label>
+    <select id="categoryFilter" onchange="filterQuotes()">
+      <option value="all">All Categories</option>
+    </select>
+  </div>
+  <div id="notification" style="margin-top: 1em; color: blue;"></div>
+  <div id="conflictResolution" style="margin-top: 1em; display: none;">
+    <p>Conflict detected! Choose data source:</p>
+    <button onclick="resolveConflict('server')">Use Server Data</button>
+    <button onclick="resolveConflict('local')">Use Local Data</button>
+  </div>
+  <div style="margin-top: 1em;">
+    <button onclick="exportToJsonFile()">Export Quotes</button>
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
